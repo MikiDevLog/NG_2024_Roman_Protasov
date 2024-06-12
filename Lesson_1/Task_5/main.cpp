@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    double coefA, coefB, coefC, Discr, Root1, Root2;
+    double coefA=0, coefB=0, coefC=0, Discr=0, Root1=0, Root2=0;
 
     cout<<"Here is simple quadratic equation calculator."<<'\n';                                          //intro
     cout<<"Enter coefficient a, b and c:"<<'\n';                                                          //ask+read coefficients
