@@ -15,11 +15,19 @@ int main()
         for(height=1;height<=(size+width);height++)                 //second loop runs as long as [height] is less or equal to [size] plus the value of [width]
         {
             if(height<=(size-width+1))                              //if [height] is less than or equal to [size] minus [width] plus 1.
-                cout<<' ';                                       //the unit [1] specifies the offset of the entire triangle from the left border of the screen. if the condition is met, type a [ ], otherwise type an [*].
+                cout<<' ';                                          //the unit [1] specifies the offset of the entire triangle from the left border of the screen. if the condition is met, type a [ ], otherwise type an [*].
             else
                 cout<<'*';
         }
         cout<<'\n';
     }
+
+        for(height=1;height<=(size+width);height++)
+        {
+            if(height==size+1)
+                cout<<'*';
+            else
+                cout<<' ';
+        }
 }
 //for some strange reason program brakes when size>89(90 also brake)
