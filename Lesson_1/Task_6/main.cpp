@@ -19,7 +19,7 @@ int main()
             else
                 cout<<'*';
         }
-        cout<<'\n';
+        cout<<endl;
     }
 
     for(height=1;height<=(size+width);height++)
