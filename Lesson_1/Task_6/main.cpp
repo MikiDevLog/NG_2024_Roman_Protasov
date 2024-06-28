@@ -22,12 +22,12 @@ int main()
         cout<<'\n';
     }
 
-        for(height=1;height<=(size+width);height++)
-        {
-            if(height==size+1)
-                cout<<'*';
-            else
-                cout<<' ';
-        }
+    for(height=1;height<=(size+width);height++)
+    {
+        if(height==size+1)
+            cout<<'*';
+        else
+            cout<<' ';
+    }
 }
 //for some strange reason program brakes when size>89(90 also brake)
