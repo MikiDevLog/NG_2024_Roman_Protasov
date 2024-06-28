@@ -7,7 +7,7 @@ int main()
     int size=0;
     int height=0, width=0;
 
-    cout<<"I will draw Christmas tree  4u."<<'\n'<<"The bigger the number, the bigger the tree will be."<<endl; //intro
+    cout<<"I will draw Christmas tree  4u."<<endl<<"The bigger the number, the bigger the tree will be."<<endl; //intro
     cin>>size;                                                      //scan the size value
 
     for(width=1;width<=size;width++)                                //the first loop works as long as [size] is less or equal to half of the triangle width
