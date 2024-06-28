@@ -20,14 +20,14 @@ int main()
 
     long long int MinMax_Bal=bank_mass[0][1];
 
-    cout<<"bank account id (1 to 10): ";                                                   //bank id read
+    cout<<"bank account id (1 to 10): "<<endl;                                                   //bank id read
     cin>>id;
     for(int j=0;j<collumes;j++)                                                            //show balance of account
     {
         cout<<bank_mass[id-1][j];
         cout<<' ';
     }
-    cout<<'\n'<<"(d)diposit, (w)withdraw, (b)all id balance, (n)min bal, (m)max bal: ";    //options prompt
+    cout<<endl<<"(d)diposit, (w)withdraw, (b)all id balance, (n)min bal, (m)max bal: "<<endl;    //options prompt
     cin>>opt;
 
     switch(opt)
@@ -35,13 +35,13 @@ int main()
         case 'd':
             cout<<"How much: ";                                                            //add to acc option
             cin>>bal;
-            cout<<"Ur current balance: "<<bank_mass[id-1][1]+bal;
+            cout<<"Ur current balance: "<<bank_mass[id-1][1]+bal<<endl;
         break;
 
         case 'w':                                                                          //withdraw to acc option
             cout<<"How much: ";
             cin>>bal;
-            cout<<"Ur current balance: "<<bank_mass[id-1][1]-bal;
+            cout<<"Ur current balance: "<<bank_mass[id-1][1]-bal<<endl;
             break;
 
         case 'b':                                                                          //show all accounts+bal
@@ -52,7 +52,7 @@ int main()
                     cout<<bank_mass[i][j];
                     cout<<' ';
                 }
-                cout<<'\n';
+                cout<<endl;
             }
             break;
 
@@ -64,7 +64,7 @@ int main()
                     MinMax_Bal=bank_mass[i][1];
                 }
             }
-            cout<<"Minimum bal is: "<<MinMax_Bal;
+            cout<<"Minimum bal is: "<<MinMax_Bal<<endl;
             break;
 
         case 'm':                                                                         //maximum ball betwen acc
@@ -75,7 +75,7 @@ int main()
                     MinMax_Bal=bank_mass[i][1];
                 }
             }
-            cout<<"Maximum bal is: "<<MinMax_Bal;
+            cout<<"Maximum bal is: "<<MinMax_Bal<<endl;
             break;
     }
 
