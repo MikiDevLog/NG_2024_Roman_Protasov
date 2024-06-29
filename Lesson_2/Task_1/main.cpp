@@ -14,11 +14,11 @@ int main()
         bank_mass[id][0]=id;
         bal=rand();
         bank_mass[id][1]=bal;
-    }                                                           //store first balance of 1-st id
+    }
 
     while (opt!='q')                                                                                    //start menu loop
     {
-        int MinMax_Bal=rand();
+        int MinMax_Bal=bank_mass[0][1];
         cout<<"bank account id (0 to 9): "<<endl;                                                       //bank id read
         cin>>id;
 
