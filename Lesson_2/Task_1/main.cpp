@@ -4,79 +4,98 @@ using namespace std;
 
 int main()
 {
-    const int rows=10;
-    const int collumes=2;
-    int bank_mass[rows][collumes];
-    int id=0, bal=0;
-    char opt;
+    srand(time(0));                                                                                    //time seed random
+    int bank_mass[10][2];
+    int id=0, bal=0, row=0, collum=0;
+    char opt='\0';
 
-    for (int i=0;i<rows;i++)                                                               //massive declaration
+    for (id=0;id<10;id++)                                                                               //massive declaration
     {
-        id++;
-        bank_mass[i][0]=id;
+        bank_mass[id][0]=id;
         bal=rand();
-        bank_mass[i][1]=bal;
+        bank_mass[id][1]=bal;
     }
 
-    long long int MinMax_Bal=bank_mass[0][1];
+    long long int MinMax_Bal=bank_mass[0][1];                                                           //store first balance of 1-st id
 
-    cout<<"bank account id (1 to 10): "<<endl;                                                   //bank id read
-    cin>>id;
-    for(int j=0;j<collumes;j++)                                                            //show balance of account
+    while (opt!='q')                                                                                    //start menu loop
     {
-        cout<<bank_mass[id-1][j];
-        cout<<' ';
+        cout<<"bank account id (0 to 9): "<<endl;                                                       //bank id read
+        cin>>id;
+
+        if (id>=10)                                                                                     //check id is correct
+        {
+            cout<<"Wrong ID."<<endl;
+        }
+        else
+        {
+            for(collum=0;collum<2;collum++)                                                                 //show balance of account
+            {
+                cout<<bank_mass[id][collum];
+                cout<<' ';
+            }
+
+            cout<<endl<<"(c)change ballance, (b)all id balance, (n)min bal, (m)max bal, (q)quit: "<<endl;  //options prompt
+            cin>>opt;
+
+            switch(opt)
+            {
+            case 'c':
+                cout<<"How much (use <-number> or <+number>: ";                                   //change oparation to acc
+                cin>>bal;
+
+                if ((bank_mass[id][1]+bal)<0)
+                {
+                    cout<<"U dont have enough money. Denied."<<endl;                                    //if u try withdraw more than u have on bal operation will denied
+                    break;
+                }
+                else
+                {
+                    cout<<"Ur current balance: "<<bank_mass[id][1]+bal<<endl;
+                    break;
+                }
+
+            case 'b':                                                                             //show all accounts+bal
+                for (row=0;row<10;row++)
+                {
+                    for(collum=0;collum<2;collum++)
+                    {
+                        cout<<bank_mass[row][collum];
+                        cout<<' ';
+                    }
+                    cout<<endl;
+                }
+                break;
+
+            case 'n':                                                                            //minimal ball betwen acc
+                for (row=0;row<10;row++)
+                {
+                    if (bank_mass[row][1]<MinMax_Bal)
+                    {
+                        MinMax_Bal=bank_mass[row][1];
+                    }
+                }
+                cout<<"Minimum bal is: "<<MinMax_Bal<<endl;
+                break;
+
+            case 'm':                                                                            //maximum ball betwen acc
+                for (row=0;row<10;row++)
+                {
+                    if (bank_mass[row][1]>MinMax_Bal)
+                    {
+                        MinMax_Bal=bank_mass[row][1];
+                    }
+                }
+                cout<<"Maximum bal is: "<<MinMax_Bal<<endl;
+                break;
+
+            case 'q':
+                cout<<"Exiting...";                                                             //Exit from menu loop.
+                break;
+
+            default:
+                cout<<"Wrong operation!"<<endl;
+            }
+        }
     }
-    cout<<endl<<"(d)diposit, (w)withdraw, (b)all id balance, (n)min bal, (m)max bal: "<<endl;    //options prompt
-    cin>>opt;
-
-    switch(opt)
-    {
-        case 'd':
-            cout<<"How much: ";                                                            //add to acc option
-            cin>>bal;
-            cout<<"Ur current balance: "<<bank_mass[id-1][1]+bal<<endl;
-        break;
-
-        case 'w':                                                                          //withdraw to acc option
-            cout<<"How much: ";
-            cin>>bal;
-            cout<<"Ur current balance: "<<bank_mass[id-1][1]-bal<<endl;
-            break;
-
-        case 'b':                                                                          //show all accounts+bal
-            for (int i=0;i<rows;i++)
-            {
-                for(int j=0;j<collumes;j++)
-                {
-                    cout<<bank_mass[i][j];
-                    cout<<' ';
-                }
-                cout<<endl;
-            }
-            break;
-
-        case 'n':                                                                          //minimal ball betwen acc
-            for (int i=0;i<rows;i++)
-            {
-                if (bank_mass[i][1]<MinMax_Bal)
-                {
-                    MinMax_Bal=bank_mass[i][1];
-                }
-            }
-            cout<<"Minimum bal is: "<<MinMax_Bal<<endl;
-            break;
-
-        case 'm':                                                                         //maximum ball betwen acc
-            for (int i=0;i<rows;i++)
-            {
-                if (bank_mass[i][1]>MinMax_Bal)
-                {
-                    MinMax_Bal=bank_mass[i][1];
-                }
-            }
-            cout<<"Maximum bal is: "<<MinMax_Bal<<endl;
-            break;
-    }
-
 }
