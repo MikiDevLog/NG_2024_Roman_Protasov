@@ -14,12 +14,11 @@ int main()
         bank_mass[id][0]=id;
         bal=rand();
         bank_mass[id][1]=bal;
-    }
-
-    long long int MinMax_Bal=bank_mass[0][1];                                                           //store first balance of 1-st id
+    }                                                           //store first balance of 1-st id
 
     while (opt!='q')                                                                                    //start menu loop
     {
+        int MinMax_Bal=rand();
         cout<<"bank account id (0 to 9): "<<endl;                                                       //bank id read
         cin>>id;
 
@@ -29,7 +28,7 @@ int main()
         }
         else
         {
-            for(collum=0;collum<2;collum++)                                                                 //show balance of account
+            for(collum=0;collum<2;collum++)                                                             //show balance of account
             {
                 cout<<bank_mass[id][collum];
                 cout<<' ';
@@ -41,7 +40,7 @@ int main()
             switch(opt)
             {
             case 'c':
-                cout<<"How much (use <-number> or <+number>: ";                                   //change oparation to acc
+                cout<<"How much (use <-number> or <+number>: ";                                         //change oparation to acc
                 cin>>bal;
 
                 if ((bank_mass[id][1]+bal)<0)
@@ -51,11 +50,12 @@ int main()
                 }
                 else
                 {
-                    cout<<"Ur current balance: "<<bank_mass[id][1]+bal<<endl;
+                    bank_mass[id][1]=bank_mass[id][1]+bal;
+                    cout<<"Ur current balance: "<<bank_mass[id][1]<<endl;
                     break;
                 }
 
-            case 'b':                                                                             //show all accounts+bal
+            case 'b':                                                                                   //show all accounts+bal
                 for (row=0;row<10;row++)
                 {
                     for(collum=0;collum<2;collum++)
@@ -67,7 +67,7 @@ int main()
                 }
                 break;
 
-            case 'n':                                                                            //minimal ball betwen acc
+            case 'n':                                                                                  //minimal ball betwen acc
                 for (row=0;row<10;row++)
                 {
                     if (bank_mass[row][1]<MinMax_Bal)
@@ -78,7 +78,7 @@ int main()
                 cout<<"Minimum bal is: "<<MinMax_Bal<<endl;
                 break;
 
-            case 'm':                                                                            //maximum ball betwen acc
+            case 'm':                                                                                  //maximum ball betwen acc
                 for (row=0;row<10;row++)
                 {
                     if (bank_mass[row][1]>MinMax_Bal)
@@ -90,7 +90,7 @@ int main()
                 break;
 
             case 'q':
-                cout<<"Exiting...";                                                             //Exit from menu loop.
+                cout<<"Exiting...";                                                                    //Exit from menu loop.
                 break;
 
             default:
